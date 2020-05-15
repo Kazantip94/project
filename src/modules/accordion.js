@@ -1,7 +1,8 @@
 const accordion = (id) => {
 
     const panel = document.querySelectorAll('.panel'),
-        collapseIn = document.querySelectorAll('.collapse');
+        collapseIn = document.querySelectorAll('.collapse'),
+        constructBtn = document.querySelectorAll('.construct-btn');
 
         for(let i = 0; i < panel.length; i++) {
             panel[i].addEventListener('click', () => {
@@ -11,7 +12,15 @@ const accordion = (id) => {
                 }
                 collapseIn[i].classList.toggle('show');
             });
+            
         }
+        for(let k = 0; k < constructBtn.length; k++) {
+            constructBtn[k].addEventListener('click', () => {
+                
+            });
+        }
+
+
         collapseIn[0].classList.add('show');
         collapseIn[4].classList.add('show'); 
 };
