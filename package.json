@@ -1,5 +1,5 @@
 {
-  "name": "lesson01",
+  "name": "projectjs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kazantip94/javascript.git"
+    "url": "git+https://github.com/Kazantip94/project.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kazantip94/javascript/issues"
+    "url": "https://github.com/Kazantip94/project/issues"
   },
-  "homepage": "https://github.com/Kazantip94/javascript#readme",
+  "homepage": "https://github.com/Kazantip94/project#readme",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",

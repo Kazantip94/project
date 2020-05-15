@@ -15,5 +15,7 @@
 
 
 import popupCall from './modules/popupCall';
+import sendForm from './modules/sendForm';
 
 popupCall();
+sendForm();
