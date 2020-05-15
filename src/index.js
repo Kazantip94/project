@@ -16,6 +16,8 @@
 
 import popupCall from './modules/popupCall';
 import sendForm from './modules/sendForm';
+import accordion from './modules/accordion';
 
 popupCall();
 sendForm();
+accordion();
