@@ -12,12 +12,16 @@
 
 
 
-
-
 import popupCall from './modules/popupCall';
 import sendForm from './modules/sendForm';
 import accordion from './modules/accordion';
+import popUpDiscount from './modules/popUpDiscount';
+import popupCheck from './modules/popupCheck';
+import popupConsultation from './modules/popupConsultation';
 
 popupCall();
 sendForm();
 accordion();
+popUpDiscount();
+popupCheck();
+popupConsultation();
