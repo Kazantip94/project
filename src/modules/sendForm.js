@@ -22,13 +22,13 @@ const sendForm = () => {
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 2rem; color:#ccc;';
 
-    const postData = (body) => {
+    const postData = (obj) => {
         return fetch('./server.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(body) 
+            obj: JSON.stringify(obj) 
         });
 
       };
@@ -59,25 +59,20 @@ const sendForm = () => {
             statusMessage.textContent = loadMessage;
             const formData = new FormData(item);
             let body = {};
-
-            
+            let date = {
+                diameterFirst: controlOne,
+                diameterSecond: controlTwo,
+                diameterThree: controlThree,
+                diameterFour: controlFour,
+                result: calcResult,
+                SwitchOne: onoffSwitchOne,
+                SwitchTwo: onoffSwitchTwo,
+                inputVlue: calcItem,  
+            };
+   
             for(let i = 0; i < popUp.length; i++){
                 if(popUp[i].classList.contains('modal-calc')){
-                    let date = {
-
-                        diameterFirst: controlOne,
-                        diameterSecond: controlTwo,
-                        diameterThree: controlThree,
-                        diameterFour: controlFour,
-                        result: calcResult,
-                        SwitchOne: onoffSwitchOne,
-                        SwitchTwo: onoffSwitchTwo,
-                        inputVlue: calcItem,  
-                        // nameUser: userName,
-                        // phoneUser: userphone,
-        
-                    };
-        
+                    
                     date.controlOne = controlOne.value;
                     date.controlTwo = controlTwo.value;
                     date.controlThree = controlThree.value;
@@ -86,15 +81,19 @@ const sendForm = () => {
                     date.onoffSwitchOne = onoffSwitchOne.value;
                     date.onoffSwitchTwo = onoffSwitchTwo.value;
                     date.calcItem = calcItem.value;
+ 
                 }
+
+                formData.forEach((val, key) => {
+                    body[key] = val;
+                });
+                
+
+                let obj = Object.assign(body, date);
+                console.log(obj);
             }
 
-            formData.forEach((val, key) => {
-                body[key] = val;
-            });
-    
-
-            postData(body)
+            postData(obj)
                 .then((response) => {
                     if(response.status !== 200){
                         throw new Error('status network not 200');
