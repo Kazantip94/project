@@ -18,6 +18,7 @@ import accordion from './modules/accordion';
 import popUpDiscount from './modules/popUpDiscount';
 import popupCheck from './modules/popupCheck';
 import popupConsultation from './modules/popupConsultation';
+import calc from './modules/calc';
 
 popupCall();
 sendForm();
@@ -25,3 +26,4 @@ accordion();
 popUpDiscount();
 popupCheck();
 popupConsultation();
+calc();

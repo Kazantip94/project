@@ -154,7 +154,7 @@
                                 <img class="type-septic" src="img/constructor/type-septic-two.png" alt="septic">
                                 <p>камерный</p>
                                 <a class="button construct-btn collapsed" data-toggle="collapse"
-                                   data-parent="#accordion" href="#collapseTwo"><span>Следующий шаг</span></a>
+                                   data-parent="#accordion"><span>Следующий шаг</span></a>
                             </div>
                         </div>
                     </div>
@@ -175,38 +175,38 @@
                                 <div class="title-text">первый колодец (приемный)</div>
                                 <div class="select-box">
                                     <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1.4 метра</option>
-                                        <option>2 метра</option>
+                                    <select class="form-control expand" id="control-one">
+                                        <option value="1.4">1.4 метра</option>
+                                        <option value="2">2 метра</option>
                                     </select>
                                 </div>
                                 <div class="select-box">
                                     <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1 штука</option>
-                                        <option>2 штуки</option>
-                                        <option>3 штуки</option>
+                                    <select class="form-control expand" id="control-two">
+                                        <option value="1">1 штука</option>
+                                        <option value="2">2 штуки</option>
+                                        <option value="3">3 штуки</option>
                                     </select>
                                 </div>
 
-                                <div class="title-text">второй колодец (дренажный)</div>
-                                <div class="select-box">
+                                <div class="title-text" id="two-well">второй колодец (дренажный)</div>
+                                <div class="select-box" id="two-well-box">
                                     <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1.4 метра</option>
-                                        <option>2 метра</option>
+                                    <select class="form-control expand" id="control-three">
+                                        <option value="1.4">1.4 метра</option>
+                                        <option value="2">2 метра</option>
                                     </select>
                                 </div>
-                                <div class="select-box">
+                                <div class="select-box" id="two-well-box-two">
                                     <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1 штука</option>
-                                        <option>2 штуки</option>
-                                        <option>3 штуки</option>
+                                    <select class="form-control expand" id="control-four">
+                                        <option value="1">1 штука</option>
+                                        <option value="2">2 штуки</option>
+                                        <option value="3">3 штуки</option>
                                     </select>
                                 </div>
                                 <a class="button construct-btn" data-toggle="collapse" data-parent="#accordion"
-                                   href="#collapseThree"><span>Следующий шаг</span></a>
+                                   ><span>Следующий шаг</span></a>
                             </div>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                                 </div>
                                 <img class="bottom-septic-img" src="img/constructor/bottom-septic.png" alt="bs">
                                 <a class="button construct-btn" data-toggle="collapse" data-parent="#accordion"
-                                   href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><span>Следующий шаг</span></a>
+                                    aria-expanded="false" aria-controls="collapseFour"><span>Следующий шаг</span></a>
                             </div>
                         </div>
                     </div>
@@ -253,7 +253,7 @@
                              aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <p>Введите расстояние до дома</p>
-                                <input type="text">
+                                <input type="text" id="calc-item">
                                 <button class="button construct-btn call-btn">Получить расчет и скидку</button>
                             </div>
                         </div>
@@ -440,7 +440,7 @@
                 <p class="question">Остались вопросы?</p>
                 <p>Введите свой вопрос и в течении 15 минут я свяжусь с вами!</p>
                 <form class="director-form">
-                    <input type="text" name="user_quest" placeholder="Введите свой вопрос" required>
+                    <input type="text" class="message" name="user_quest" placeholder="Введите свой вопрос" required>
                     <button class="button director-btn consultation-btn" name="submit" type="submit">Получить
                         консультацию
                     </button>
