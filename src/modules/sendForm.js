@@ -5,7 +5,19 @@ const sendForm = () => {
 
     const form = document.querySelectorAll('form'),
         phone = document.querySelectorAll('.phone-user'),
-        name = document.querySelectorAll('.form-name');
+        name = document.querySelectorAll('.form-name'),
+        popUp = document.querySelectorAll('.popup'),
+
+        calcResult = document.getElementById('calc-result'),
+        onoffSwitchOne = document.getElementById('myonoffswitch'),
+        onoffSwitchTwo = document.getElementById('myonoffswitch-two'),
+        calcItem = document.getElementById('calc-item'),
+        controlOne = document.getElementById('control-one'),
+        controlTwo = document.getElementById('control-two'),
+        controlThree = document.getElementById('control-three'),
+        controlFour = document.getElementById('control-four');
+
+        
 
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 2rem; color:#ccc;';
@@ -47,6 +59,35 @@ const sendForm = () => {
             statusMessage.textContent = loadMessage;
             const formData = new FormData(item);
             let body = {};
+
+            
+            for(let i = 0; i < popUp.length; i++){
+                if(popUp[i].classList.contains('modal-calc')){
+                    let date = {
+
+                        diameterFirst: controlOne,
+                        diameterSecond: controlTwo,
+                        diameterThree: controlThree,
+                        diameterFour: controlFour,
+                        result: calcResult,
+                        SwitchOne: onoffSwitchOne,
+                        SwitchTwo: onoffSwitchTwo,
+                        inputVlue: calcItem,  
+                        // nameUser: userName,
+                        // phoneUser: userphone,
+        
+                    };
+        
+                    date.controlOne = controlOne.value;
+                    date.controlTwo = controlTwo.value;
+                    date.controlThree = controlThree.value;
+                    date.controlFour = controlFour.value;
+                    date.calcResult = calcResult.value;
+                    date.onoffSwitchOne = onoffSwitchOne.value;
+                    date.onoffSwitchTwo = onoffSwitchTwo.value;
+                    date.calcItem = calcItem.value;
+                }
+            }
 
             formData.forEach((val, key) => {
                 body[key] = val;

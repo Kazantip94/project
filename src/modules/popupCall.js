@@ -1,7 +1,8 @@
 const popupCall = () => {
     const popUpCall = document.querySelector('.popup-call'),
         popUp = document.querySelectorAll('.popup'),
-        callBtn = document.querySelectorAll('.call-btn');
+        callBtn = document.querySelectorAll('.call-btn'),
+        captureForm = document.querySelectorAll('.capture-form');
 
     const frame = () => {
         popUpCall.style.display = 'block';
@@ -15,6 +16,7 @@ const popupCall = () => {
     
             if(target.classList.contains('popup-close')) {
                 popUp[i].style.display = 'none'; 
+                popUp[i].classList.remove('modal-calc');
                 
                 popupCall();
             }else{
@@ -24,6 +26,7 @@ const popupCall = () => {
                 if(!target) {
                     popUp[i].style.display = 'none';
                     
+                    popUp[i].classList.remove('modal-calc');
                     popupCall();
                 }
             }

@@ -12,9 +12,10 @@ const calc = () => {
         controlTwo = document.getElementById('control-two'),
         controlThree = document.getElementById('control-three'),
         controlFour = document.getElementById('control-four'),
-        captureFormBtn = document.querySelector('.capture-form-btn'),
+        discountBtn = document.getElementById('discount-btn'),
         userName = document.getElementById('name_1'),
-        userphone = document.getElementById('phone_1');
+        userphone = document.getElementById('phone_1'),
+        popUp = document.querySelectorAll('.popup');
         
 
        
@@ -22,16 +23,16 @@ const calc = () => {
             twoWellBox.style.display = 'none';
             twoWellBoxTwo.style.display = 'none';
             
-            const postData = (body) => {
-                return fetch('./server.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(body) 
-                });
+            // const postData = (body) => {
+            //     return fetch('./server.php', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify(body) 
+            //     });
         
-              };
+            //   };
        
         // Функция подсчета
         const countSum = () => {
@@ -95,41 +96,45 @@ const calc = () => {
         
         accordion.addEventListener('input', countSum);
         
-        captureFormBtn.addEventListener('submit', (event) => {
-            event.preventDefault();
- 
-            let body = {
+        discountBtn.addEventListener('click', () => {
 
-                diameterFirst: controlOne,
-                diameterSecond: controlTwo,
-                diameterThree: controlThree,
-                diameterFour: controlFour,
-                result: calcResult,
-                SwitchOne: onoffSwitchOne,
-                SwitchTwo: onoffSwitchTwo,
-                inputVlue: calcItem,  
-                nameUser: userName,
-                phoneUser: userphone,
+            // let body = {
 
-            };
+            //     diameterFirst: controlOne,
+            //     diameterSecond: controlTwo,
+            //     diameterThree: controlThree,
+            //     diameterFour: controlFour,
+            //     result: calcResult,
+            //     SwitchOne: onoffSwitchOne,
+            //     SwitchTwo: onoffSwitchTwo,
+            //     inputVlue: calcItem,  
+                // nameUser: userName,
+                // phoneUser: userphone,
 
-            body.controlOne = controlOne.value;
-            body.controlTwo = controlTwo.value;
-            body.controlThree = controlThree.value;
-            body.controlFour = controlFour.value;
-            body.calcResult = calcResult.value;
-            body.onoffSwitchOne = onoffSwitchOne.value;
-            body.onoffSwitchTwo = onoffSwitchTwo.value;
-            body.calcItem = calcItem.value;
-            body.userName = userName.value;
-            body.userphone = userphone.value;
+            // };
+
+            // body.controlOne = controlOne.value;
+            // body.controlTwo = controlTwo.value;
+            // body.controlThree = controlThree.value;
+            // body.controlFour = controlFour.value;
+            // body.calcResult = calcResult.value;
+            // body.onoffSwitchOne = onoffSwitchOne.value;
+            // body.onoffSwitchTwo = onoffSwitchTwo.value;
+            // body.calcItem = calcItem.value;
+            // body.userName = userName.value;
+            // body.userphone = userphone.value;
+            for(let i = 0; i < popUp.length; i++){
+                popUp[i].classList.add('modal-calc');
+            }
+
+            // console.log(body);
             
-            postData(body)
-            .then((response) => {
-                if(response.status !== 200){
-                    throw new Error('status network not 200');
-                }
-            });
+            // postData(body)
+            // .then((response) => {
+            //     if(response.status !== 200){
+            //         throw new Error('status network not 200');
+            //     }
+            // });
         });    
 };
 export default calc;
