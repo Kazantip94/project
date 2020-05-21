@@ -61,8 +61,8 @@ const sendForm = () => {
             let body = {};
             let date = {};
    
-            for(let i = 0; i < popUp.length; i++){
-                if(item.parentElement.parentNode.classList.contains('modal-calc')){
+            
+                if(item.parentElement.parentNode.parentNode.classList.contains('modal-calc')){
                     
                     date.controlOne = controlOne.value;
                     date.controlTwo = controlTwo.value;
@@ -74,7 +74,6 @@ const sendForm = () => {
                     date.calcItem = calcItem.value;
  
                 }
-
                 formData.forEach((val, key) => {
                     body[key] = val;
                 });
@@ -84,8 +83,7 @@ const sendForm = () => {
                 console.log(obj);
                 console.log(body);
 
-            }
-
+            
             postData(obj)
                 .then((response) => {
                     if(response.status !== 200){
