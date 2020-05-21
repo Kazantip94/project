@@ -11,20 +11,28 @@ const calc = () => {
         controlOne = document.getElementById('control-one'),
         controlTwo = document.getElementById('control-two'),
         controlThree = document.getElementById('control-three'),
-        controlFour = document.getElementById('control-four');
+        controlFour = document.getElementById('control-four'),
+        captureFormBtn = document.querySelector('.capture-form-btn'),
+        userName = document.getElementById('name_1'),
+        userphone = document.getElementById('phone_1');
+        
 
        
             twoWell.style.display = 'none';
             twoWellBox.style.display = 'none';
-            twoWellBoxTwo.style.display = 'none'; 
-        // let inps = document.querySelectorAll('select');
-
-        // for(let i = 0; i < inps.length; i++) {
-        //     if(inps[i].name && inps[i].accordion === this) {
-        //         console.log(inps[i].name, inps[i].value);
-        //     }
-        // }
-        // console.log(inps);
+            twoWellBoxTwo.style.display = 'none';
+            
+            const postData = (body) => {
+                return fetch('./server.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body) 
+                });
+        
+              };
+       
         // Функция подсчета
         const countSum = () => {
             let total = 0,
@@ -75,16 +83,54 @@ const calc = () => {
             }
             //Подсчет результата
             total =  valueControlOne + valueControlTwo + valueControlThree + valueControlFour + swithOne + bottom;
-            console.log(total);
+
             //Вывод результата в input
-            
-            calcResult.textContent = total;  
-        };
-        calcItem.addEventListener('input', function () {
+            calcResult.value = total;  
+
+            calcItem.addEventListener('input', function () {
                 this.value = this.value.replace(/[^0-9\.]/, '');
             });
+        };
         
-        accordion.addEventListener('change', countSum);
-    
+        
+        accordion.addEventListener('input', countSum);
+        
+        captureFormBtn.addEventListener('submit', (event) => {
+            event.preventDefault();
+ 
+            let body = {
+
+                diameterFirst: controlOne,
+                diameterSecond: controlTwo,
+                diameterThree: controlThree,
+                diameterFour: controlFour,
+                result: calcResult,
+                SwitchOne: onoffSwitchOne,
+                SwitchTwo: onoffSwitchTwo,
+                inputVlue: calcItem,  
+                nameUser: userName,
+                phoneUser: userphone,
+
+            };
+
+            body.controlOne = controlOne.value;
+            body.controlTwo = controlTwo.value;
+            body.controlThree = controlThree.value;
+            body.controlFour = controlFour.value;
+            body.calcResult = calcResult.value;
+            body.onoffSwitchOne = onoffSwitchOne.value;
+            body.onoffSwitchTwo = onoffSwitchTwo.value;
+            body.calcItem = calcItem.value;
+            body.userName = userName.value;
+            body.userphone = userphone.value;
+            
+            postData(body)
+            .then((response) => {
+                if(response.status !== 200){
+                    throw new Error('status network not 200');
+                }
+            });
+        });    
 };
 export default calc;
+
