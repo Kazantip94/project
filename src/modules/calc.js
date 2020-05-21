@@ -18,7 +18,7 @@ const calc = () => {
             twoWell.style.display = 'none';
             twoWellBox.style.display = 'none';
             twoWellBoxTwo.style.display = 'none';
-            calcResult.value = '0'; 
+            calcResult.value = '11000'; 
        
         // Функция подсчета
         const countSum = () => {
