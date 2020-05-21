@@ -13,26 +13,11 @@ const calc = () => {
         controlThree = document.getElementById('control-three'),
         controlFour = document.getElementById('control-four'),
         discountBtn = document.getElementById('discount-btn'),
-        userName = document.getElementById('name_1'),
-        userphone = document.getElementById('phone_1'),
         popUp = document.querySelectorAll('.popup');
-        
 
-       
             twoWell.style.display = 'none';
             twoWellBox.style.display = 'none';
             twoWellBoxTwo.style.display = 'none';
-            
-            // const postData = (body) => {
-            //     return fetch('./server.php', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         },
-            //         body: JSON.stringify(body) 
-            //     });
-        
-            //   };
        
         // Функция подсчета
         const countSum = () => {
@@ -92,49 +77,14 @@ const calc = () => {
                 this.value = this.value.replace(/[^0-9\.]/, '');
             });
         };
-        
-        
+               
         accordion.addEventListener('input', countSum);
         
         discountBtn.addEventListener('click', () => {
 
-            // let body = {
-
-            //     diameterFirst: controlOne,
-            //     diameterSecond: controlTwo,
-            //     diameterThree: controlThree,
-            //     diameterFour: controlFour,
-            //     result: calcResult,
-            //     SwitchOne: onoffSwitchOne,
-            //     SwitchTwo: onoffSwitchTwo,
-            //     inputVlue: calcItem,  
-                // nameUser: userName,
-                // phoneUser: userphone,
-
-            // };
-
-            // body.controlOne = controlOne.value;
-            // body.controlTwo = controlTwo.value;
-            // body.controlThree = controlThree.value;
-            // body.controlFour = controlFour.value;
-            // body.calcResult = calcResult.value;
-            // body.onoffSwitchOne = onoffSwitchOne.value;
-            // body.onoffSwitchTwo = onoffSwitchTwo.value;
-            // body.calcItem = calcItem.value;
-            // body.userName = userName.value;
-            // body.userphone = userphone.value;
             for(let i = 0; i < popUp.length; i++){
                 popUp[i].classList.add('modal-calc');
-            }
-
-            // console.log(body);
-            
-            // postData(body)
-            // .then((response) => {
-            //     if(response.status !== 200){
-            //         throw new Error('status network not 200');
-            //     }
-            // });
+            }  
         });    
 };
 export default calc;

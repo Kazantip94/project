@@ -28,7 +28,7 @@ const sendForm = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            obj: JSON.stringify(obj) 
+            body: JSON.stringify(obj) 
         });
 
       };
@@ -59,19 +59,10 @@ const sendForm = () => {
             statusMessage.textContent = loadMessage;
             const formData = new FormData(item);
             let body = {};
-            let date = {
-                diameterFirst: controlOne,
-                diameterSecond: controlTwo,
-                diameterThree: controlThree,
-                diameterFour: controlFour,
-                result: calcResult,
-                SwitchOne: onoffSwitchOne,
-                SwitchTwo: onoffSwitchTwo,
-                inputVlue: calcItem,  
-            };
+            let date = {};
    
             for(let i = 0; i < popUp.length; i++){
-                if(popUp[i].classList.contains('modal-calc')){
+                if(item.parentElement.parentNode.classList.contains('modal-calc')){
                     
                     date.controlOne = controlOne.value;
                     date.controlTwo = controlTwo.value;
@@ -91,6 +82,8 @@ const sendForm = () => {
 
                 let obj = Object.assign(body, date);
                 console.log(obj);
+                console.log(body);
+
             }
 
             postData(obj)
