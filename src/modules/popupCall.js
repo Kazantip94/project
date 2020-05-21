@@ -17,6 +17,7 @@ const popupCall = () => {
             if(target.classList.contains('popup-close')) {
                 popUp[i].style.display = 'none'; 
                 popUp[i].classList.remove('modal-calc');
+                popUp[i].classList.remove('modal-form');
                 
                 popupCall();
             }else{
@@ -27,6 +28,7 @@ const popupCall = () => {
                     popUp[i].style.display = 'none';
                     
                     popUp[i].classList.remove('modal-calc');
+                    popUp[i].classList.remove('modal-form');
                     popupCall();
                 }
             }

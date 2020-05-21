@@ -2,31 +2,13 @@ const popupConsultation = () => {
     const consultationBtn = document.querySelector('.consultation-btn'),
         popupConsultation = document.querySelector('.popup-consultation'),
         message = document.querySelector('.message'),
-        directorForm = document.querySelector('.director-form');
+        popUp = document.querySelector('.popup-consultation');
 
-        const postData = (body) => {
-            return fetch('./server.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body) 
-            });
-    
-          };
-
-        consultationBtn.addEventListener('click', (event) => {
+        consultationBtn.addEventListener('click', () => {  
+            event.preventDefault();
                 if(message.value !== ''){
-                    event.preventDefault();
                     popupConsultation.style.display = 'block';
-                    const formData = new FormData(directorForm);
-                    let body = {};
-
-                    formData.forEach((val, key) => {
-                        body[key] = val;
-                });
-                 postData(body);
-                
+                    popUp.classList.add('modal-form');  
                 }
     });
 };

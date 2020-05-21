@@ -6,8 +6,6 @@ const sendForm = () => {
     const form = document.querySelectorAll('form'),
         phone = document.querySelectorAll('.phone-user'),
         name = document.querySelectorAll('.form-name'),
-        popUp = document.querySelectorAll('.popup'),
-
         calcResult = document.getElementById('calc-result'),
         onoffSwitchOne = document.getElementById('myonoffswitch'),
         onoffSwitchTwo = document.getElementById('myonoffswitch-two'),
@@ -15,6 +13,7 @@ const sendForm = () => {
         controlOne = document.getElementById('control-one'),
         controlTwo = document.getElementById('control-two'),
         controlThree = document.getElementById('control-three'),
+        message = document.querySelector('.message'),
         controlFour = document.getElementById('control-four');
 
         
@@ -40,6 +39,7 @@ const sendForm = () => {
             for(let i = 0; i < phone.length; i++) {
                 if(phone !== i){
                     phone[i].value = phone[i].value.replace(/[^0-9+]/, '');
+                    
                 }else{
                     console.log('Введите цыфри: ');
                 }
@@ -60,7 +60,7 @@ const sendForm = () => {
             const formData = new FormData(item);
             let body = {};
             let date = {};
-   
+            let formDate = {};
             
                 if(item.parentElement.parentNode.parentNode.classList.contains('modal-calc')){
                     
@@ -74,16 +74,15 @@ const sendForm = () => {
                     date.calcItem = calcItem.value;
  
                 }
+                if(item.parentElement.parentNode.parentNode.classList.contains('modal-form')){
+                    formDate.message = message.value;
+                }
                 formData.forEach((val, key) => {
                     body[key] = val;
                 });
-                
 
-                let obj = Object.assign(body, date);
-                console.log(obj);
-                console.log(body);
+                let obj = Object.assign(body, date, formDate);
 
-            
             postData(obj)
                 .then((response) => {
                     if(response.status !== 200){

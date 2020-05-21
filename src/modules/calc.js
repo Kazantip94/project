@@ -13,11 +13,12 @@ const calc = () => {
         controlThree = document.getElementById('control-three'),
         controlFour = document.getElementById('control-four'),
         discountBtn = document.getElementById('discount-btn'),
-        popUp = document.querySelectorAll('.popup');
+        popUp = document.querySelector('.popup-call');
 
             twoWell.style.display = 'none';
             twoWellBox.style.display = 'none';
             twoWellBoxTwo.style.display = 'none';
+            calcResult.value = '0'; 
        
         // Функция подсчета
         const countSum = () => {
@@ -28,6 +29,8 @@ const calc = () => {
                 valueControlTwo = 0,
                 valueControlThree = 0,
                 valueControlFour = 0;
+
+                
             // Блок тип септика
             if(onoffSwitchOne.checked){
                 swithOne += 10000;
@@ -81,10 +84,9 @@ const calc = () => {
         accordion.addEventListener('input', countSum);
         
         discountBtn.addEventListener('click', () => {
-
-            for(let i = 0; i < popUp.length; i++){
-                popUp[i].classList.add('modal-calc');
-            }  
+            
+            popUp.classList.add('modal-calc');
+             
         });    
 };
 export default calc;
